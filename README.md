@@ -40,20 +40,25 @@ Every dataset used can be found under the Index of heart disease datasets from U
 Overview:
 There are various classification algorithms present out of which we shall implement the following :
 ● KNN
+
 ● Random Forest Classification
+
 ● SVM
+
 ● MLP
 We also make use of PCA and LDA for dimensionality reduction and Sequential Feature selector for feature selection.
 
-Exploring the dataset and preprocessing:
+### Exploring the dataset and preprocessing:
 On counting the number of NULL values in the train dataset , it was found that there are no NULL values present.
 On further looking, we found that there are categorical variables so we need to encode them. We  used make_column_transformer for that purpose.
 ‘Sex’ , ‘ChestPainType’ , ‘ExerciseAngina’ and ‘ST_Slope’ are encoded with help of OneHotEncoder as they contain nominal values.
 ‘RestingECG’ is encoded with the help of OrdinalEncoder as it contains ordinal values.
 Thus, now our data is transformed. It only contains numeric values.
 
-Implementation of classification algorithms:
+### Implementation of classification algorithms:
+
 ● KNN (k - nearest neighbors) : KNN are supervised algorithms which classify on the basis of distance from similar points.Here k is the number of nearest neighbors to be considered in the majority voting process. k=5 (constant)  is selected with the help of GridSearchCV.
+
 ○ Three types of KNN Classifiers were made :
 
 ■ Simple KNN with Sequential Feature selector (n_features=8)
@@ -65,58 +70,87 @@ Implementation of classification algorithms:
 ● Random Forest Classifier : Random Forest Classifiers use boosting ensemble methods to train upon various decision trees and produce aggregated results. It is one of the most used machine learning algorithms. n_estimators=95,
 max_depth=5 and criterion=’gini’ are selected with the help of GridSearchCV.
 
+
 ○ Three types of Random Forest Classifiers were made in the project :
+
 ■Simple Random Forest Classifier
+
 ■ Random forest with PCA (n_components=13)
+
 ■ Random forest with LDA
+
 
 ● Support Vector Machine : In SVM , data points are plotted into n-dimensional graphs which are then classified by drawing hyperplanes. After preprocessing, we need to scale the data with the help of StandardScaler.
 
+
 ○ Three types of SVM classifiers were used
 
+
 ■ Simple SVM with rbf kernel [ SFS(n_features=13)]
+
 ■ SVM with PCA (n_componets=13) [ SFS(n_features=9)]
+
 ■ SVM with LDA
+
 
 
 ● Multilayer Perceptron : MLP is a feedforward Neural Network which uses backpropagation to update weights and improve the results.
 
+
 ○ Three types of MLP were used
 
+
 ■ Simple MLP  with Sequential Feature selector (n_features=8)
+
 ■ MLP with PCA (n_componets=12)   [ SFS(n_features=8)]
+
 ■ MLP with LDA
 
-EVALUATION OF MODELS
+## EVALUATION OF MODELS
 
 K-Neighbours Classifier
 
 Variant	Accuracy
+
 a.	Simple KNN with Sequential Feature selector (n_features=8)	84.78260869565217
-a.	KNN with PCA (n_components=12) and SFS (n_features=6)	86.59420289855072
-a.	KNN with LDA	80.79710144927536
+
+b.	KNN with PCA (n_components=12) and SFS (n_features=6)	86.59420289855072
+
+c.	KNN with LDA	80.79710144927536
 
 
 
 Random Forest Classifier
 
 Variant	Accuracy
+
 a.	Simple Random Forest	90.21739130434783
-a.	Random forest with PCA (n_components=13)	89.85507246376811
-a.	Random forest with LDA	84.42028985507247
+
+b.	Random forest with PCA (n_components=13)	89.85507246376811
+
+c.	Random forest with LDA	84.42028985507247
 
 
 Support Vector Machine
+
 Variant	Accuracy
+
 a.	Simple SVM with rbf kernel [ SFS(n_features=13)]	90.57971014492753
-a.	SVM with PCA (n_componets=13) [ SFS(n_features=9)]	89.85507246376811
-a.	SVM with LDA	86.23188405797102
+
+b.	SVM with PCA (n_componets=13) [ SFS(n_features=9)]	89.85507246376811
+
+c.	SVM with LDA	86.23188405797102
+
 
 Multilayer Perceptron
+
 Variant	Accuracy
+
 a.	Simple MLP  with Sequential Feature selector (n_features=8)	85.5072463768116
-a.	MLP with PCA (n_componets=12)   [ SFS(n_features=8)]	84.42028985507247
-a.	MLP with LDA	86.23188405797102
+
+b.	MLP with PCA (n_componets=12)   [ SFS(n_features=8)]	84.42028985507247
+
+c.	MLP with LDA	86.23188405797102
 
 
 

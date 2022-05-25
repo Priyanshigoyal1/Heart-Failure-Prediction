@@ -2,14 +2,14 @@
 Heart failure is a common event caused by Cardiovascular diseases (CVDs) and this dataset contains 11 features that can be used to predict a possible heart disease. People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperlipidaemia or already established disease) need early detection and management wherein a machine learning model can be of great help.
 
 
-ABSTRACT
+## ABSTRACT
 This paper reports our experience with building a Heart Failure Prediction, We have dataset which is created by combining different datasets already available independently but not combined before. In this dataset, 5 heart dataset are combined over 11 common features. We use various classification algorithms and compare their results in this report. 
 
-INTRODUCTION
+## INTRODUCTION
 Cardiovascular diseases (CVDs) are the number 1 cause of death globally, taking an estimated 17.9 million lives each year, which accounts for 31% of all deaths worldwide. Four out of 5CVD deaths are due to heart attacks and strokes, and one-third of these deaths occur prematurely in people under 70 years of age. Heart failure is a common event caused by CVDs and this dataset contains 11 features that can be used to predict a possible heart disease.
 People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperlipidaemia or already established disease) need early detection and management wherein a machine learning model can be of great help.
 
-Dataset source:
+## Dataset source:
 This dataset was created by combining different datasets already available independently but not combined before. In this dataset, 5 heart datasets are combined over 11 common features which makes it the largest heart disease dataset available so far for research purposes. The five datasets used for its curation are:
 •	Cleveland: 303 observations
 •	Hungarian: 294 observations
@@ -22,7 +22,7 @@ Final dataset: 918 observations
 Every dataset used can be found under the Index of heart disease datasets from UCI Machine Learning Repository on the following link: https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/
 
 
-Attribute Information:
+## Attribute Information:
 •	Age: age of the patient [years]
 •	Sex: sex of the patient [M: Male, F: Female]
 •	ChestPainType: chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
@@ -36,7 +36,7 @@ Attribute Information:
 •	ST_Slope: the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
 •	HeartDisease: output class [1: heart disease, 0: Normal]
 
-METHODOLOGY
+## METHODOLOGY
 Overview:
 There are various classification algorithms present out of which we shall implement the following :
 ● KNN
@@ -57,8 +57,11 @@ Implementation of classification algorithms:
 ○ Three types of KNN Classifiers were made :
 
 ■ Simple KNN with Sequential Feature selector (n_features=8)
+
 ■ KNN with PCA (n_components=12) and SFS (n_features=6)
+
 ■ KNN with LDA
+
 ● Random Forest Classifier : Random Forest Classifiers use boosting ensemble methods to train upon various decision trees and produce aggregated results. It is one of the most used machine learning algorithms. n_estimators=95,
 max_depth=5 and criterion=’gini’ are selected with the help of GridSearchCV.
 
@@ -117,6 +120,7 @@ a.	MLP with LDA	86.23188405797102
 
 
 
-CONCLUSION
+## CONCLUSION
+
 Svm and Random forest performed nearly the same. KNN and MLP are not that good. After implementing PCA,  KNN showed slight increase in accuracy, opposite to other models.  MLP performed better with LDA, But other models did not perform well when implemented LDA.
 Sequential feature selection also helped in increasing accuracy to a little bit.
